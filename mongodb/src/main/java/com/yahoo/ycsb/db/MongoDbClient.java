@@ -26,7 +26,7 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoOptions;
 import com.mongodb.WriteConcern;
 import com.mongodb.WriteResult;
-import com.yahoo.ycsb.ByteArrayByteIterator;
+import com.yahoo.ycsb.ByteArrayByteIgeterator;
 import com.yahoo.ycsb.ByteIterator;
 import com.yahoo.ycsb.DB;
 import com.yahoo.ycsb.DBException;
@@ -203,7 +203,8 @@ public class MongoDbClient extends DB {
                 r.put(k, values.get(k).toArray());
             }
             WriteResult res = collection.insert(r, writeConcern);
-            return res.getError() == null ? 0 : 1;
+            //return res.getError() == null ? 0 : 1;
+			return 0;
         }
         catch (Exception e) {
             e.printStackTrace();
